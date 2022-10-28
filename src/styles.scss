@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.form-group{
+    height: 100px;
+    width: 200px;
+    margin-bottom: 20px;
+
+    input{
+        padding: 0.6rem;
+    }
+}

@@ -1,0 +1,11 @@
+.header {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  background: coral;
+  justify-content: space-evenly;
+
+  .active {
+    background: rgb(99, 99, 239);
+  }
+}

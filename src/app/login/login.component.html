@@ -1,0 +1,17 @@
+
+<div>
+    <form [formGroup]="loginForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input formControlName="username" type="text" name="username" id="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" name="password" id="password">
+            <p *ngIf="loginForm.controls['password'].touched && loginForm.controls['password']?.errors?.['minlength']">Password Is Not Valid!</p>
+        </div>
+        <button (click)="fetchUsernameHandler()">Fetch Username</button>
+        <button (click)="onLoginHandler()" [disabled]="loginForm.invalid">Login</button>
+    </form>
+</div>
+<button (click)="onClickOfRegisterBtn()">Click to register</button>

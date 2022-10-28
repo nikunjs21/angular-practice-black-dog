@@ -1,0 +1,6 @@
+<div class="header">
+    <!-- <button [class.active]="appName === 'dashboard'">Dashboard</button>
+    <button [class.active]="appName === 'home'">Home</button> -->
+    <button *ngFor="let item of apps" [class.active]="appName === item.name">{{item.title}}</button>
+    <!-- <button>Home</button> -->
+</div>
