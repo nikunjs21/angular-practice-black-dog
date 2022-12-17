@@ -1,3 +1,20 @@
 <p>dashboard works!</p>
 <button id="homeBtn" class="btn" (click)="gotoHome()">Go To Home</button>
-<app-common [appList]="sampleArray" (action)="listenAction($event)"></app-common>
+<app-common
+  [appList]="sampleArray"
+  (action)="listenAction($event)"
+></app-common>
+<ng-template [ngIf]="employees.showLoader">Loading ...</ng-template>
+<ng-template [ngIf]="!employees.showLoader">
+  <table>
+    <tbody>
+      <tr *ngFor="let data of employees.data">
+        <td>{{ data?.name | lowercase }}</td>
+        <td>{{ data?.email | titlecase }}</td>
+        <td><img src="{{ data.image }}" height="150" /></td>
+        <td>{{ data.tt | humanReadableRate }}</td>
+        <td><input type="checkbox" name="cb_{{data.id}}" id="cb_{{data.id}}" [(ngModel)]="data.isCheck" (ngModelChange)="onCheckboxChange(data)"></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>

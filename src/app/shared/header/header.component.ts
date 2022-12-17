@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { HeaderMenu } from 'src/app/interface/HeaderMenu';
+import { EmplCountService } from 'src/app/services/empl-count.service';
 
 @Component({
   selector: 'app-header',
@@ -20,8 +21,12 @@ export class HeaderComponent implements OnInit {
       title: 'Home',
     },
   ];
+  totalEmpls: number = 0;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private emplCount: EmplCountService) {
+    this.emplCount.emplCount.subscribe(x => {
+      this.totalEmpls = x;
+    })
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {

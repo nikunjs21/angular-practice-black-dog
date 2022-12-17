@@ -3,4 +3,5 @@
     <button [class.active]="appName === 'home'">Home</button> -->
     <button *ngFor="let item of apps" [class.active]="appName === item.name">{{item.title}}</button>
     <!-- <button>Home</button> -->
+    <h3>Selected Empls: {{totalEmpls}}</h3>
 </div>
